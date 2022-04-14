@@ -1,0 +1,19 @@
+{
+  "name": "playtest",
+  "version": "1.0.0",
+  "description": "Testing playwright",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc -p tsconfig.json",
+    "run": "node build/index.js",
+    "start": "npm run build && npm run run"
+  },
+  "author": "Julian Galvez",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "playwright": "^1.21.0"
+  }
+}
