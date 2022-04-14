@@ -16,12 +16,12 @@ const GeneratePDF = async (url: string, fileName: string) => {
   const page = await context.newPage();
   await page.emulateMedia({ media: 'print' });
   await page.goto(url, { waitUntil: 'networkidle' });
+  await page.waitForLoadState('domcontentloaded');
   const pdf = await page.pdf({
     width: '375px',
     scale: 1,
   });
   browser.close();
-  // write file from Buffer
   const file = fs.createWriteStream(`./output/${fileName}`);
   file.write(pdf);
 };
